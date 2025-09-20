@@ -1,27 +1,72 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "Backend for Tax Client Intake Application",
-  "main": "server.js",
-  "type": "commonjs",
+  "name": "server", 
+  // The project/package name (used internally by npm)
+
+  "version": "1.0.0", 
+  // Semantic version number for this backend
+
+  "description": "Backend for Tax Client Intake Application", 
+  // Short description of the project
+
+  "main": "server.js", 
+  // Entry point file that runs when you start the app
+
+  "type": "commonjs", 
+  // Defines the module system.
+  // "commonjs" means you use require() instead of ES modules (import/export).
+
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node server.js", 
+    // Runs the backend normally with Node.js
+
+    "dev": "nodemon server.js", 
+    // Runs the backend in development mode using nodemon.
+    // Nodemon automatically restarts the server when you save changes.
+
     "test": "echo \"Error: no test specified\" && exit 1"
+    // Placeholder for tests — can be replaced later with Jest/Mocha/etc.
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+
+  "keywords": [], 
+  // Useful for npm search/publishing (can be left empty for local projects)
+
+  "author": "", 
+  // Your name goes here (optional, but helpful for documentation)
+
+  "license": "ISC", 
+  // Default license — can change to MIT, Apache, etc.
+
   "dependencies": {
-    "axios": "^1.12.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-validator": "^7.2.1",
-    "mongodb": "^6.19.0",
-    "mongoose": "^8.18.0"
+    // These packages are needed for the backend to run in production:
+    
+    "axios": "^1.12.1", 
+    // HTTP client (optional here, but could be used for external API calls)
+
+    "cors": "^2.8.5", 
+    // Enables secure cross-origin requests between frontend/backend
+
+    "dotenv": "^16.4.5", 
+    // Loads environment variables from .env file into process.env
+
+    "express": "^4.19.2", 
+    // Web framework for building REST APIs
+
+    "express-validator": "^7.2.1", 
+    // Middleware for validating and sanitizing incoming request data
+
+    "mongodb": "^6.19.0", 
+    // Official MongoDB driver (used internally by mongoose)
+
+    "mongoose": "^8.18.0" 
+    // ODM (Object Data Modeling) library for MongoDB
+    // Simplifies working with schemas, queries, and models
   },
+
   "devDependencies": {
+    // These are only needed in development (not production):
+
     "nodemon": "^3.1.0"
+    // Watches your files and restarts the server when changes are saved
   }
 }
+
