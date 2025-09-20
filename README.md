@@ -19,8 +19,9 @@ Designed for real-world use in tax preparation for the 2026 filing season, the a
 - **Frontend**: React (bootstrapped with Create React App)
 - **Backend**: Node.js + Express
 - **Database**: MongoDB Atlas
+- **Hosting & Deployment**: Render (frontend & backend)
 - **API Testing**: Postman
-- **Code Quality**: ESLint + Prettier
+- **Code Quality & Formatting**: ESLint + Prettier
 
 ## Setup Instructions
 
