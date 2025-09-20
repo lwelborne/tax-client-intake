@@ -9,9 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
+
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://tax-client-intake.onrender.com",
+  "https://frontend-ts4x.onrender.com",
 ];
 
 app.use(
@@ -29,16 +30,16 @@ app.use(
 
 app.use(express.json());
 
-// Routes
+
 const clientRoutes = require("./routes/clientRoutes");
 app.use("/api/clients", clientRoutes);
 
-// Health check route
+
 app.get("/", (req, res) => {
   res.send("Server is running and connected.");
 });
 
-// DB connection
+
 async function startServer() {
   try {
     await mongoose.connect(MONGO_URI);
