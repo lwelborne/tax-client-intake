@@ -1,12 +1,29 @@
 {
   "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
+    // Specifies which environments your code is expected to run in.
+    // This sets up global variables (like window, process, etc.)
+    "browser": true,   // Enables browser globals (window, document, etc.)
+    "es2021": true,    // Enables ES2021 syntax features (e.g., optional chaining)
+    "node": true       // Enables Node.js globals (process, __dirname, etc.)
   },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "plugins": ["prettier"],
+  "extends": [
+    // Base set of rules recommended by ESLint.
+    "eslint:recommended",
+
+    // Integrates Prettier with ESLint so Prettier formatting rules
+    // run as part of your linting process.
+    // This ensures no conflict between ESLint style rules and Prettier.
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    // Loads the Prettier plugin so ESLint knows how to run Prettier checks.
+    "prettier"
+  ],
   "rules": {
+    // This enforces Prettier’s formatting as ESLint errors.
+    // If your code is not formatted according to Prettier rules,
+    // ESLint will show it as an error.
     "prettier/prettier": "error"
   }
 }
+
