@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tax Client Intake Form — Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      margin: 0;
+      background: #0b1220;
+      color: #e6edf3;
+      line-height: 1.55;
+    }
+    header {
+      padding: 40px 20px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #111a2f, #0b1220);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .subtitle { opacity: 0.8; margin-bottom: 16px; }
+    .btns {
+      display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: #141b2d;
+      color: #e6edf3;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn:hover { background: #1a2340; border-color: rgba(255,255,255,0.28); transform: translateY(-1px); }
+    main { padding: 28px 20px 60px; max-width: 1000px; margin: 0 auto; }
+    .grid {
+      display: grid; grid-template-columns: 1fr; gap: 20px;
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 1.1fr .9fr; }
+    }
+    .card {
+      background: #0f1629; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+    .card h2 { margin-top: 0; font-size: 20px; }
+    .screenshot {
+      width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);
+      display: block; background: #0b1220;
+    }
+    ul { margin-top: 10px; padding-left: 18px; }
+    li { margin: 6px 0; }
+    code {
+      background: #0b1220; padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+      font-size: 0.95em;
+    }
+    .muted { opacity: 0.75; }
+    footer {
+      text-align: center; padding: 30px 20px; opacity: 0.7; font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* lighter blue for ZIP + Demo Video links only */
+    .light-link {
+      color: #4da6ff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .light-link:hover {
+      color: #80c1ff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<script>
+  fetch('./links.json')
+    .then(res => res.json())
+    .then(config => {
+      document.getElementById('liveApp').href = config.liveApp;
+      document.getElementById('readme').href = config.readme;
+      document.getElementById('repo').href = config.repo;
+    })
+    .catch(err => console.error('Error loading links:', err));
+</script>
+
+<body>
+  <header>
+    <h1>Tax Client Intake Form</h1>
+    <div class="subtitle">A simple full-stack web app to collect and manage tax-client information.</div>
+    <div class="btns">
+      <!-- Replace the href values with your real links -->
+      <a class="btn" href="https://tax-client-intake.onrender.com" target="_blank" rel="noopener">
+        🚀 Open Live App
+      </a>
+      <a class="btn" href="https://github.com/lwelborne/tax-client-intake/blob/main/README.md" rel="noopener">
+        📘 View README
+      </a>
+      <a class="btn" href="https://github.com/lwelborne/tax-client-intake" target="_blank" rel="noopener">
+        🧰 View Repository
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card">
+        <h2>Overview</h2>
+        <p>
+          The Tax Client Intake Form is a full-stack web application designed to simplify how tax professionals 
+          collect and manage client information. Built with React, Node.js, and MongoDB, the app provides 
+          an easy-to-use interface for entering client data, editing records, and viewing submissions.
+        </p>
+          This project demonstrates end-to-end 
+          full-stack development skills, from designing a responsive user interface to building secure 
+          backend APIs and integrating a cloud database. By digitizing the intake process, it reduces 
+          manual paperwork, increases accuracy, and ensures client data is securely stored and easy to access.
+        </p>
+      </section>
+
+      <aside class="card">
+        <h2>Tech Stack</h2>
+        <ul>
+          <li><strong>Languages & Formats:</strong> JavaScript, HTML, CSS</li>
+          <li><strong>Frameworks & Libraries:</strong> React, Node.js, Express</li>
+          <li><strong>Database & Hosting:</strong> MongoDB Atlas, Vercel (frontend), Render (backend)</li>
+          <li><strong>Version Control & Tools:</strong> Git, GitHub, Postman</li>
+        </ul>
+
+        <h2>Deliverables</h2>
+        <ul>
+          <li>
+            📦 Download the 
+            <a href="TaxClientIntake.zip" target="_blank" rel="noopener" class="light-link">
+              Project ZIP File
+            </a>
+          </li>
+          <li>
+            🎥 Watch the 
+            <a href="https://example.com/demo-video.mp4" target="_blank" rel="noopener" class="light-link">
+              Demo Video
+            </a>
+          </li>
+        </ul>
+
+        <h2>Test Actions</h2>
+        <ul>
+          <li>Add client information, then edit and delete.</li>
+          <li>Confirm API responses with Postman.</li>
+          <li>
+            📊 View test data in 
+            <a href="https://docs.google.com/spreadsheets/d/15MzzOC5ZwBVzZmJA3Vg48w5AzLGxhCniqLkmb9I0JDU/edit?usp=sharing" 
+               target="_blank" rel="noopener">
+               Google Sheets
+            </a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Tax Client Intake. Built with ❤️ by Lenora Welborne.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
