@@ -6,7 +6,7 @@ const {
   createClient,
   updateClient,
   deleteClient,
-} = require("../controllers/clientController");
+} = require("../Controllers/clientController");
 
 const router = express.Router();
 
