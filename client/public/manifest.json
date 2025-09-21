@@ -1,25 +1,41 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React App", 
+  // The short name of your app, used when space is limited (like app icons).
+
+  "name": "Create React App Sample", 
+  // Full name of your app, shown in installation prompts or splash screens.
+
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon.ico", 
+      "sizes": "64x64 32x32 24x24 16x16", 
       "type": "image/x-icon"
+      // Favicon for browser tabs and bookmarks.
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "logo192.png", 
+      "type": "image/png", 
       "sizes": "192x192"
+      // Icon used when installing the app on devices (Android home screen, etc.)
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "logo512.png", 
+      "type": "image/png", 
       "sizes": "512x512"
+      // Larger version of the app icon, used for high-resolution devices.
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+
+  "start_url": ".", 
+  // The URL that loads when the app is launched (here, the root path).
+
+  "display": "standalone", 
+  // Defines how the app looks when launched:
+  // "standalone" makes it behave like a native app (no browser UI).
+
+  "theme_color": "#000000", 
+  // The color of the browser toolbar / app top bar.
+
+  "background_color": "#ffffff" 
+  // The background color shown while the app is loading.
 }
