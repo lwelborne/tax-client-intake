@@ -1,58 +1,40 @@
 {
-  "name": "client", 
-  // Name of the project/package (usually matches the folder name).
-
-  "version": "1.0.0", 
-  // Project version. You can bump this when you release updates.
-
-  "private": true, 
-  // Prevents accidental publishing of this app to npm registry.
-
+  "name": "client",
+  "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    // Main libraries your app needs in production:
-    "axios": "^1.11.0",          // For making HTTP requests to backend APIs
-    "react": "^18.2.0",          // React core library
-    "react-dom": "^18.2.0",      // React rendering for the DOM
-    "react-scripts": "5.0.1",    // Scripts/configuration from Create React App
-    "web-vitals": "^2.1.4"       // Reports Core Web Vitals (performance metrics)
+    "axios": "^1.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
-
   "scripts": {
-    // Common npm commands for React app
-    "start": "react-scripts start",   // Start development server (localhost:3000)
-    "build": "react-scripts build",   // Build optimized production files
-    "test": "react-scripts test",     // Run unit tests
-    "eject": "react-scripts eject"    // Eject CRA config (not reversible easily!)
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-
-  "proxy": "http://localhost:5000", 
-  // Redirects API calls from frontend (port 3000) to backend (port 5000)
-  // Example: axios.get("/api/clients") → actually goes to http://localhost:5000/api/clients
-
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
-      "react-app",       // Default ESLint rules for React
-      "react-app/jest"   // ESLint rules for Jest testing
+      "react-app",
+      "react-app/jest"
     ]
   },
-
   "browserslist": {
-    // Helps build tools (like Babel) know which browsers to support
     "production": [
-      ">0.2%",           // Browsers used by >0.2% of global users
-      "not dead",        // Exclude browsers no longer maintained
-      "not op_mini all"  // Exclude Opera Mini
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",  // Support latest version of Chrome
-      "last 1 firefox version", // Support latest version of Firefox
-      "last 1 safari version"   // Support latest version of Safari
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
-
   "devDependencies": {
-    // Dependencies only needed for development
-    "eslint-plugin-react-hooks": "^5.2.0" 
-    // ESLint plugin to enforce React Hooks best practices (rules of hooks)
+    "eslint-plugin-react-hooks": "^5.2.0"
   }
 }
