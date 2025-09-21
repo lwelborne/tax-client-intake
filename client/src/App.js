@@ -34,7 +34,7 @@ function App() {
 
       {error && <div className="error">{error}</div>}
 
-      {/* 👇 Put both AddClient + ClientsList inside a single "bubble" */}
+      {/* Put both AddClient + ClientsList inside a single "bubble" */}
       <div className="bubble">
         <AddClient onClientAdded={handleClientAdded} />
         <ClientsList clients={clients} fetchClients={fetchClients} />
