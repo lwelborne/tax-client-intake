@@ -1,48 +1,57 @@
 /* App.css */
 
-/* Overall background */
+/* Global reset */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f7fb; /* light gray background */
+  background-color: #f5f7fb; /* light background */
   margin: 0;
   padding: 0;
 }
 
-/* Main container */
+/* Main wrapper for the app */
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
-  padding: 30px;
-  background: #fff;
-  border: 1px solid #ddd;         /* border around the form */
-  border-radius: 8px;             /* rounded corners */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
 }
 
-/* Title */
+/* App heading */
 h1 {
   text-align: center;
-  color: purple;
+  color: #5a2d82; /* purple heading */
   margin-bottom: 20px;
 }
 
-/* Section headers */
+/* Bubble container that holds form + client list */
+.bubble {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left; /* keep form and list aligned left */
+}
+
+/* Section headers inside bubble */
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-weight: bold;
+  color: #333;
 }
 
-/* Form fields */
+/* Form layout */
 form {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 form input {
   flex: 1;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -53,25 +62,29 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 }
 
+/* Add Client button */
 button.add {
-  background-color: #28a745;
+  background-color: #5a2d82; /* purple */
   color: #fff;
 }
 
+/* Edit button */
 button.edit {
-  background-color: #007bff;
+  background-color: #007bff; /* blue */
   color: #fff;
   margin-right: 8px;
 }
 
+/* Delete button */
 button.delete {
-  background-color: #dc3545;
+  background-color: #dc3545; /* red */
   color: #fff;
 }
 
-/* Client list */
+/* Client list items */
 .client-item {
   display: flex;
   justify-content: space-between;
@@ -81,4 +94,35 @@ button.delete {
   border-radius: 4px;
   margin-bottom: 8px;
   background: #fafafa;
+}
+
+/* Note below forms/lists */
+.form-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Success message */
+.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Error message */
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-align: center;
 }
