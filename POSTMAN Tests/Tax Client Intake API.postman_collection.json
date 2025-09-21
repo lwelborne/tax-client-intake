@@ -1,13 +1,13 @@
 {
   "info": {
-    "name": "Tax Client Intake API",
-    "_postman_id": "a1b2c3d4-5678-90ab-cdef-1234567890ff",
+    "name": "Tax Client Intake API", // Collection name in Postman
+    "_postman_id": "a1b2c3d4-5678-90ab-cdef-1234567890ff", // Unique Postman ID
     "description": "Postman collection for testing CRUD operations on the Tax Client Intake API with auto-validation, including error cases",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "T01 - Create Client",
+      "name": "T01 - Create Client", // Test creating a new client
       "request": {
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
@@ -27,9 +27,10 @@
         {
           "listen": "test",
           "script": {
+            // Postman test scripts
             "exec": [
               "pm.test(\"Status code is 201\", function () {",
-              "    pm.response.to.have.status(201);",
+              "    pm.response.to.have.status(201);", // Ensure creation success
               "});",
               "pm.test(\"Response has name, email, and phone\", function () {",
               "    var jsonData = pm.response.json();",
@@ -44,10 +45,9 @@
       ]
     },
     {
-      "name": "T02 - Get All Clients",
+      "name": "T02 - Get All Clients", // Test fetching all clients
       "request": {
         "method": "GET",
-        "header": [],
         "url": {
           "raw": "http://localhost:5000/api/clients",
           "protocol": "http",
@@ -67,19 +67,17 @@
               "pm.test(\"Response is an array\", function () {",
               "    pm.expect(pm.response.json()).to.be.an('array');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
     },
     {
-      "name": "T03 - Get Client by ID",
+      "name": "T03 - Get Client by ID", // Test fetching a specific client
       "request": {
         "method": "GET",
-        "header": [],
         "url": {
-          "raw": "http://localhost:5000/api/clients/:id",
+          "raw": "http://localhost:5000/api/clients/:id", // Replace :id with real MongoDB _id
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -98,14 +96,13 @@
               "    var jsonData = pm.response.json();",
               "    pm.expect(jsonData).to.have.property('_id');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
     },
     {
-      "name": "T04 - Update Client by ID",
+      "name": "T04 - Update Client by ID", // Test updating client info
       "request": {
         "method": "PUT",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
@@ -133,17 +130,15 @@
               "    var jsonData = pm.response.json();",
               "    pm.expect(jsonData).to.have.property('phone', '301-555-5555');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
     },
     {
-      "name": "T05 - Delete Client by ID",
+      "name": "T05 - Delete Client by ID", // Test deleting a client
       "request": {
         "method": "DELETE",
-        "header": [],
         "url": {
           "raw": "http://localhost:5000/api/clients/:id",
           "protocol": "http",
@@ -165,19 +160,17 @@
               "    pm.expect(jsonData).to.have.property('message');",
               "    pm.expect(jsonData.message).to.contain('deleted');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
     },
     {
-      "name": "T06 - Invalid Client ID",
+      "name": "T06 - Invalid Client ID", // Test error handling for bad ID
       "request": {
         "method": "GET",
-        "header": [],
         "url": {
-          "raw": "http://localhost:5000/api/clients/123",
+          "raw": "http://localhost:5000/api/clients/123", // Not a valid ObjectId
           "protocol": "http",
           "host": ["localhost"],
           "port": "5000",
@@ -196,14 +189,13 @@
               "    var jsonData = pm.response.json();",
               "    pm.expect(jsonData).to.have.property('error');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
     },
     {
-      "name": "T07 - Invalid Data on Create",
+      "name": "T07 - Invalid Data on Create", // Test validation errors
       "request": {
         "method": "POST",
         "header": [{ "key": "Content-Type", "value": "application/json" }],
@@ -232,8 +224,7 @@
               "    pm.expect(jsonData).to.have.property('errors');",
               "    pm.expect(jsonData.errors).to.be.an('array');",
               "});"
-            ],
-            "type": "text/javascript"
+            ]
           }
         }
       ]
