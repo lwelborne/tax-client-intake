@@ -1,57 +1,73 @@
+/* ------------------------------
+   Base List Styles
+------------------------------ */
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style-type: none; /* Remove default bullets from list */
+  padding: 0;            /* Remove default padding */
 }
 
+/* ------------------------------
+   Client Item Styles
+------------------------------ */
 .client-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: #fafafa;
+  display: flex;                     /* Place content in a row */
+  justify-content: space-between;    /* Space out text and action buttons */
+  align-items: center;               /* Vertically center content */
+  padding: 10px;                     /* Inner spacing */
+  margin-bottom: 8px;                /* Space between list items */
+  border: 1px solid #ddd;            /* Light gray border */
+  border-radius: 5px;                /* Rounded corners */
+  background: #fafafa;               /* Light gray background */
 }
 
+/* Input fields inside list items (edit mode) */
 .client-item input {
-  margin-right: 8px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-right: 8px;                 /* Space between inputs */
+  padding: 5px;                      /* Inner spacing */
+  border: 1px solid #ccc;            /* Light border */
+  border-radius: 4px;                /* Rounded corners */
 }
 
+/* ------------------------------
+   Actions (Edit/Delete buttons)
+------------------------------ */
 .actions {
-  display: flex;
-  gap: 8px;
+  display: flex;                     /* Arrange buttons in a row */
+  gap: 8px;                          /* Space between buttons */
 }
 
+/* Base button styling */
 .actions button {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
+  padding: 6px 12px;                 /* Size */
+  border: none;                      /* Remove default border */
+  border-radius: 4px;                /* Rounded corners */
+  cursor: pointer;                   /* Pointer cursor on hover */
+  font-size: 14px;                   /* Text size */
 }
 
+/* Edit/Save button (green) */
 .actions .update {
-  background-color: #4caf50;
-  color: white;
+  background-color: #4caf50;         /* Green background */
+  color: white;                      /* White text */
 }
 
+/* Delete/Cancel button (red) */
 .actions .delete {
-  background-color: #f44336;
-  color: white;
+  background-color: #f44336;         /* Red background */
+  color: white;                      /* White text */
 }
 
+/* ------------------------------
+   Feedback Messages
+------------------------------ */
 .success {
-  color: green;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: green;                      /* Green text for success */
+  font-weight: bold;                 /* Make message stand out */
+  margin-bottom: 10px;               /* Space below message */
 }
 
 .error {
-  color: red;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: red;                        /* Red text for errors */
+  font-weight: bold;                 /* Make message stand out */
+  margin-bottom: 10px;               /* Space below message */
 }
