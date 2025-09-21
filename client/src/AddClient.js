@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import API from "./api";   // Centralized Axios instance for backend calls
-import "./AddClient.css";  // Styles for the add client form
+import API from "./api";          // Centralized Axios instance for backend calls
+import "./AddClient.css";         // Import styles
 
 /**
  * AddClient Component
@@ -8,46 +8,38 @@ import "./AddClient.css";  // Styles for the add client form
  *  - onClientAdded: callback function to notify parent (App.js) when a new client is added
  */
 function AddClient({ onClientAdded }) {
-  // Form field states
+  // Form state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  // UI feedback states
-  const [success, setSuccess] = useState(false); // Tracks success message
-  const [error, setError] = useState("");        // Tracks error messages
+  // UI feedback state
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
-  /**
-   * Handle form submission → POST new client to backend
-   */
+  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();   // Prevent page reload
-    setSuccess(false);    // Reset success state
-    setError("");         // Reset error state
-
+    e.preventDefault();
     try {
-      // Send client data to backend API
-      await API.post("/clients", { name, email, phone }); 
-      setSuccess(true); // Show success message
-
-      // Notify parent (App.js) to refresh client list
-      if (onClientAdded) onClientAdded();
-
-      // Reset form fields
+      await API.post("/clients", { name, email, phone });
+      setSuccess("Client added successfully!");
+      setError("");
       setName("");
       setEmail("");
       setPhone("");
+      onClientAdded(); // Refresh client list
+      setTimeout(() => setSuccess(""), 3000);
     } catch (err) {
-      console.error("Error adding client:", err);
-      setError("Unable to add client. Please check your information and try again.");
+      console.error("Failed to add client:", err);
+      setError("Failed to add client. Please try again.");
+      setSuccess("");
+      setTimeout(() => setError(""), 3000);
     }
   };
 
   return (
-    <div className="add-client">
-      <h2>Add Client</h2>
-
-      {/* Form to capture client input */}
+    <div>
+      <h3>Add Client</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -70,16 +62,14 @@ function AddClient({ onClientAdded }) {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
-        <button type="submit" className="add">
-          Add Client
-        </button>
+        <button type="submit" className="add">Add Client</button>
       </form>
 
-      {/* Feedback messages */}
-      {success && <p className="success">Client added successfully!</p>}
-      {error && <p className="error">{error}</p>}
+      {/* Messages */}
+      {success && <div className="success">{success}</div>}
+      {error && <div className="error">{error}</div>}
 
-      {/* Small note below the form */}
+      {/* Note */}
       <p className="form-note">
         This intake form is for the 2026 filing season.
       </p>
@@ -88,4 +78,3 @@ function AddClient({ onClientAdded }) {
 }
 
 export default AddClient;
-
