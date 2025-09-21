@@ -1,5 +1,9 @@
+// Import core dependencies
 const express = require("express");
+// express-validator helps validate/sanitize request data before it reaches the controller
 const { body, validationResult } = require("express-validator");
+
+// Import controller functions (business logic for each route)
 const {
   getClients,
   getClientById,
@@ -8,20 +12,41 @@ const {
   deleteClient,
 } = require("../Controllers/clientController");
 
+// Create a new Express router instance
+// All routes defined here will be prefixed in server.js with "/api/clients"
 const router = express.Router();
 
+/**
+ * Middleware: validate()
+ * Checks for validation errors after running express-validator rules.
+ * If errors exist → respond with 400 and the error details.
+ * If no errors → continue to the next middleware/controller.
+ */
 const validate = (req, res, next) => {
-  const errors = validationResult(req);
+  const errors = validationResult(req); // Collect validation results
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    return res.status(400).json({ errors: errors.array() }); // Return errors to client
   }
-  next();
+  next(); // Move on to the actual route handler
 };
 
+// -------------------- ROUTES -------------------- //
+
+// @route   GET /api/clients
+// @desc    Fetch all clients from the database
 router.get("/", getClients);
 
+// @route   GET /api/clients/:id
+// @desc    Fetch a single client by their MongoDB ObjectId
 router.get("/:id", getClientById);
 
+// @route   POST /api/clients
+// @desc    Create a new client
+// @access  Public (can add authentication later if needed)
+// Middleware chain:
+//   1. express-validator rules check the body
+//   2. validate() middleware returns errors if rules fail
+//   3. createClient controller saves the client if data is valid
 router.post(
   "/",
   [
@@ -37,6 +62,9 @@ router.post(
   createClient,
 );
 
+// @route   PUT /api/clients/:id
+// @desc    Update an existing client by ID
+// Middleware ensures only valid fields are updated
 router.put(
   "/:id",
   [
@@ -54,6 +82,9 @@ router.put(
   updateClient,
 );
 
+// @route   DELETE /api/clients/:id
+// @desc    Delete a client by ID
 router.delete("/:id", deleteClient);
 
+// Export the router so server.js can mount it
 module.exports = router;
