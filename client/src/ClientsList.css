@@ -1,73 +1,118 @@
 /* ------------------------------
-   Base List Styles
+   Wrapper Box for Clients List
+------------------------------ */
+.clients-list {
+  border: 1px solid #ddd;            /* Light gray border */
+  border-radius: 6px;                /* Rounded corners */
+  padding: 20px;                     /* Space inside */
+  background-color: #fff;            /* White card background */
+  max-width: 600px;                  /* Wider than Add Client box */
+  margin: 20px auto;                 /* Center horizontally with spacing */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+/* ------------------------------
+   List Styling
 ------------------------------ */
 ul {
-  list-style-type: none; /* Remove default bullets from list */
-  padding: 0;            /* Remove default padding */
+  list-style-type: none;             /* Remove bullets */
+  padding: 0;
+  margin: 0;
 }
 
-/* ------------------------------
-   Client Item Styles
------------------------------- */
 .client-item {
-  display: flex;                     /* Place content in a row */
-  justify-content: space-between;    /* Space out text and action buttons */
-  align-items: center;               /* Vertically center content */
-  padding: 10px;                     /* Inner spacing */
-  margin-bottom: 8px;                /* Space between list items */
-  border: 1px solid #ddd;            /* Light gray border */
-  border-radius: 5px;                /* Rounded corners */
-  background: #fafafa;               /* Light gray background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;            /* Border around each client row */
+  border-radius: 5px;
+  background: #fafafa;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* Input fields inside list items (edit mode) */
 .client-item input {
-  margin-right: 8px;                 /* Space between inputs */
-  padding: 5px;                      /* Inner spacing */
-  border: 1px solid #ccc;            /* Light border */
-  border-radius: 4px;                /* Rounded corners */
+  margin-right: 8px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /* ------------------------------
-   Actions (Edit/Delete buttons)
+   Action Buttons
 ------------------------------ */
 .actions {
-  display: flex;                     /* Arrange buttons in a row */
-  gap: 8px;                          /* Space between buttons */
+  display: flex;
+  gap: 8px;
 }
 
-/* Base button styling */
 .actions button {
-  padding: 6px 12px;                 /* Size */
-  border: none;                      /* Remove default border */
-  border-radius: 4px;                /* Rounded corners */
-  cursor: pointer;                   /* Pointer cursor on hover */
-  font-size: 14px;                   /* Text size */
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* Edit/Save button (green) */
 .actions .update {
-  background-color: #4caf50;         /* Green background */
-  color: white;                      /* White text */
+  background-color: #4a148c;         /* Match Add Client button */
+  color: white;
 }
 
-/* Delete/Cancel button (red) */
+.actions .update:hover {
+  background-color: #380d6b;         /* Darker purple on hover */
+}
+
 .actions .delete {
-  background-color: #f44336;         /* Red background */
-  color: white;                      /* White text */
+  background-color: #f44336;
+  color: white;
+}
+
+.actions .delete:hover {
+  background-color: #8e0000;
 }
 
 /* ------------------------------
-   Feedback Messages
+   Success & Error Messages
 ------------------------------ */
 .success {
-  color: green;                      /* Green text for success */
-  font-weight: bold;                 /* Make message stand out */
-  margin-bottom: 10px;               /* Space below message */
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .error {
-  color: red;                        /* Red text for errors */
-  font-weight: bold;                 /* Make message stand out */
-  margin-bottom: 10px;               /* Space below message */
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ------------------------------
+   Responsive Adjustments
+------------------------------ */
+@media (max-width: 768px) {
+  .client-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .actions button {
+    flex: 1;
+  }
 }
